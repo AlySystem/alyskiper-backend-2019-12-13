@@ -1,0 +1,35 @@
+input SkiperCatTravelInput {
+    id: Int
+    name: String!
+    url_img_category: String!
+    url_img_drive: String!
+    mode_drive: String!
+    btaxy: Boolean!
+    bdelivery: Boolean!
+    btransporte: Boolean!
+    paycommission: Int
+    percentageagent: Int
+}
+
+type SkiperCatTravelDto {
+    id: Int!
+    name: String
+    url_img_category: String
+    url_img_drive: String
+    mode_drive: String
+    btaxy: Boolean
+    bdelivery: Boolean
+    btransporte: Boolean
+    paycommission: Int
+    percentageagent: Int
+}
+
+type Query {
+    skipercattravels: [SkiperCatTravelDto!]!
+    searchSkiperCatTravel(id: Int): SkiperCatTravelDto
+}
+
+type Mutation {
+    registerSkiperCatTravel(input: SkiperCatTravelInput): SkiperCatTravelDto!
+    updateSkiperCatTravel(input: SkiperCatTravelInput!): SkiperCatTravelDto
+ }

@@ -1,0 +1,16 @@
+type SkiperCatCommerceDto {
+    id: Int
+    name: String
+    url_img_category: String
+    subcatcommerce: [SkiperSubCatCommerceDto]
+}
+
+input CatCommerceInput {
+    id: Int
+    name: String!
+    url_img_category: String!
+}
+
+type Query {
+    categoriesCommerce:[SkiperCatCommerceDto]!
+}

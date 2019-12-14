@@ -1,0 +1,38 @@
+type SkiperAgentDto {
+    id: Int
+    state:Boolean
+    identity:String
+    create_at:DateTime
+    categoryAgent: categoryDto
+    user: UserDto
+    skiperVehicleAgent: [SkiperVehicleAgentDto]
+}
+
+type Query {
+  agents: [SkiperAgentDto!]!
+  searchAgentsBySponsorId(idsponsor: Int!): [UserDto!]! 
+  searchAgentByIdUser(iduser:Int!):SkiperAgentDto!
+}
+
+type Mutation{
+  registerAgent(input: AgentInput!): SkiperAgentDto!
+  updateAgent(input: AgentInput!): SkiperAgentDto!
+  ObtenerDriveCercano(lat: Float!, lng: Float!, inputdrive: [AgentDriveInput!]!):Int
+}
+
+input AgentDriveInput {
+  iddrive:Int!
+  lat:Float!
+  lng:Float!
+  distancia: Float
+}
+
+input AgentInput {
+    id: Int
+    iduser: Int
+    state: Boolean #Activo
+    identity: String
+    create_at: DateTime
+    categoryAgent_id: Int!
+    user_id: Int
+}
